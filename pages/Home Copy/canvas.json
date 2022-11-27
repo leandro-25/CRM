@@ -389,7 +389,9 @@
                       "columnWidthMap": {
                         "task": 245,
                         "step": 62,
-                        "status": 75
+                        "status": 75,
+                        "status_do_contrato": 234,
+                        "nome_do_contato": 187
                       },
                       "parentRowSpace": 10,
                       "hideCard": false,
