@@ -1879,7 +1879,7 @@
                               "labelStyle": "BOLD",
                               "isDisabled": false,
                               "key": "u7d8wh6wc6",
-                              "validation": "{{CurrencyInput1.value>1}}",
+                              "validation": "{{CurrencyInput1_novo.value>0}}",
                               "labelTextSize": "0.875rem",
                               "isRequired": true,
                               "isDeprecated": false,
