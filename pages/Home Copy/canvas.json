@@ -62,7 +62,7 @@
               "labelPosition": "Top",
               "options": "[\n  {\n    \"label\": \"Pendente\",\n    \"value\": \"Pendente\"\n  },\n  {\n    \"label\": \"Recebeu proposta\",\n    \"value\": \"Recebeu proposta\"\n  },\n  {\n    \"label\": \"Em negociação\",\n    \"value\": \"Em negociação\"\n  },\n\t{\n    \"label\": \"Fechado\",\n    \"value\": \"Fechado\"\n  },\n\t{\n    \"label\": \"Cancelado\",\n    \"value\": \"Cancelado\"\n  }\n]",
               "labelStyle": "BOLD",
-              "placeholderText": "Selecionar Status",
+              "placeholderText": "Todos os Status",
               "isDisabled": false,
               "key": "n3byfranil",
               "labelTextSize": "1.25rem",
@@ -78,7 +78,7 @@
               "renderMode": "CANVAS",
               "isLoading": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "onOptionChange": "{{Cliente_filtros.run()}}"
+              "onOptionChange": "{{Cliente_filtros.run(() => showAlert('Status filtrados','success'), () => showAlert('Ocorreu um erro','error'))}}"
             },
             {
               "boxShadow": "none",
@@ -125,7 +125,7 @@
               "labelPosition": "Top",
               "options": "{{Vendedor.data.map( (obj) =>{ return  {'label': obj.nome, 'value': obj.nome } })}}",
               "labelStyle": "BOLD",
-              "placeholderText": "Selecionar Vendedor",
+              "placeholderText": "Todos os vendedores",
               "isDisabled": false,
               "key": "n3byfranil",
               "labelTextSize": "1.25rem",
@@ -141,7 +141,7 @@
               "renderMode": "CANVAS",
               "isLoading": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "onOptionChange": "{{Cliente_filtros.run()}}"
+              "onOptionChange": "{{Cliente_filtros.run(() => showAlert('Vendedores filtrados','success'), () => showAlert('Ocorreu um erro','error'))}}"
             },
             {
               "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
@@ -254,7 +254,7 @@
                       "isSortable": true,
                       "type": "TABLE_WIDGET_V2",
                       "inlineEditingSaveOption": "ROW_LEVEL",
-                      "animateLoading": true,
+                      "animateLoading": false,
                       "dynamicBindingPathList": [
                         {
                           "key": "accentColor"
@@ -684,7 +684,7 @@
                           "isEditable": false,
                           "isCellVisible": true,
                           "isDerived": false,
-                          "label": "vendedor_nome",
+                          "label": "Vendedor",
                           "isSaveVisible": true,
                           "isDiscardVisible": true,
                           "computedValue": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"vendedor_nome\"]))}}",
@@ -801,6 +801,9 @@
                       "dynamicPropertyPathList": [
                         {
                           "key": "onClick"
+                        },
+                        {
+                          "key": "isDisabled"
                         }
                       ],
                       "displayName": "Button",
@@ -825,10 +828,13 @@
                       "dynamicBindingPathList": [
                         {
                           "key": "buttonColor"
+                        },
+                        {
+                          "key": "isDisabled"
                         }
                       ],
                       "text": "atualizar",
-                      "isDisabled": false,
+                      "isDisabled": "{{!Table1_clientes.selectedRow.id>0}}",
                       "key": "9pzsjpbvjr",
                       "isDeprecated": false,
                       "rightColumn": 64,
@@ -1278,7 +1284,11 @@
                       "widgetName": "Button5",
                       "onClick": "{{showModal('Modal_smtp')}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-                      "dynamicPropertyPathList": [],
+                      "dynamicPropertyPathList": [
+                        {
+                          "key": "isDisabled"
+                        }
+                      ],
                       "displayName": "Button",
                       "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
                       "searchTags": [
@@ -1301,10 +1311,13 @@
                       "dynamicBindingPathList": [
                         {
                           "key": "buttonColor"
+                        },
+                        {
+                          "key": "isDisabled"
                         }
                       ],
                       "text": "Enviar mensagem",
-                      "isDisabled": false,
+                      "isDisabled": "{{!Table1_clientes.selectedRow.id>0}}",
                       "key": "q3s7eqc16m",
                       "isDeprecated": false,
                       "rightColumn": 64,
@@ -1523,6 +1536,9 @@
                               "dynamicPropertyPathList": [
                                 {
                                   "key": "onClick"
+                                },
+                                {
+                                  "key": "isDisabled"
                                 }
                               ],
                               "displayName": "Button",
@@ -1547,10 +1563,13 @@
                               "dynamicBindingPathList": [
                                 {
                                   "key": "buttonColor"
+                                },
+                                {
+                                  "key": "isDisabled"
                                 }
                               ],
-                              "text": "Confirmar",
-                              "isDisabled": false,
+                              "text": "Salvar",
+                              "isDisabled": "{{!Input1_novo.isValid || !Input2_novo.isValid || !Input4_novo.isValid || !CurrencyInput1_novo.value>0\n|| !Select1_novo.selectedOptionValue|| !Select2_novo.selectedOptionValue}}",
                               "key": "9pzsjpbvjr",
                               "isDeprecated": false,
                               "rightColumn": 63,
@@ -1571,6 +1590,7 @@
                             {
                               "boxShadow": "none",
                               "widgetName": "Input1_novo",
+                              "dynamicPropertyPathList": [],
                               "displayName": "Input",
                               "iconSVG": "/static/media/icon.9f505595da61a34f563dba82adeb06ec.svg",
                               "searchTags": [
@@ -1597,6 +1617,9 @@
                                 },
                                 {
                                   "key": "borderRadius"
+                                },
+                                {
+                                  "key": "validation"
                                 }
                               ],
                               "labelPosition": "Top",
@@ -1604,12 +1627,14 @@
                               "inputType": "TEXT",
                               "isDisabled": false,
                               "key": "2ex9ictlzn",
+                              "validation": "{{Input1_novo.text.length>1}}",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "2xh0s8oyak",
                               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "errorMessage": "Digite um nome",
                               "isVisible": true,
                               "label": "Nome do cliente",
                               "version": 2,
@@ -1650,6 +1675,9 @@
                                 },
                                 {
                                   "key": "borderRadius"
+                                },
+                                {
+                                  "key": "validation"
                                 }
                               ],
                               "labelPosition": "Top",
@@ -1657,12 +1685,14 @@
                               "inputType": "TEXT",
                               "isDisabled": false,
                               "key": "2ex9ictlzn",
+                              "validation": "{{Input2_novo.text.length>1}}",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "auetjg64wk",
                               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "errorMessage": "Digite um nome",
                               "isVisible": true,
                               "label": "Nome do contato do cliente",
                               "version": 2,
@@ -1799,7 +1829,7 @@
                               "isDisabled": false,
                               "key": "n3byfranil",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "il0b5jhs5a",
@@ -1840,18 +1870,23 @@
                                 },
                                 {
                                   "key": "borderRadius"
+                                },
+                                {
+                                  "key": "validation"
                                 }
                               ],
                               "labelPosition": "Top",
                               "labelStyle": "BOLD",
                               "isDisabled": false,
                               "key": "u7d8wh6wc6",
+                              "validation": "{{CurrencyInput1.value>0}}",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "wl1mm7w8k0",
                               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "errorMessage": "Digite um valor avlido",
                               "isVisible": true,
                               "label": "Valor do contrato",
                               "allowCurrencyChange": false,
@@ -1860,6 +1895,7 @@
                               "labelAlignment": "left",
                               "renderMode": "CANVAS",
                               "isLoading": false,
+                              "regex": "",
                               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                               "decimals": 2,
                               "iconAlign": "left",
@@ -1910,7 +1946,7 @@
                               "isDisabled": false,
                               "key": "n3byfranil",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "c3dwdjau4y",
@@ -1952,6 +1988,9 @@
                                 },
                                 {
                                   "key": "borderRadius"
+                                },
+                                {
+                                  "key": "validation"
                                 }
                               ],
                               "labelPosition": "Top",
@@ -1959,12 +1998,14 @@
                               "inputType": "EMAIL",
                               "isDisabled": false,
                               "key": "qk1nb2t7sq",
+                              "validation": "{{Input4_novo.text.length>1}}",
                               "labelTextSize": "0.875rem",
-                              "isRequired": false,
+                              "isRequired": true,
                               "isDeprecated": false,
                               "rightColumn": 63,
                               "widgetId": "6j7g49fm3o",
                               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "errorMessage": "DIigite um email valido",
                               "isVisible": true,
                               "label": "Email",
                               "version": 2,
