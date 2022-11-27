@@ -1,0 +1,33 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "Home Copy",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tpersonalizado:``,\n\n\tteste1: `Mensagem de teste 1\n`,\n\tteste2: `Mensagem de teste 2\n`,\n\tteste3: `Mensagem de teste 3\n`,\n\tonOpen: () => {\n\t\tstoreValue('crm',appsmith.store.crm || `personalizado`)\n\t}\n\n\n}",
+    "variables": [
+      {
+        "name": "personalizado",
+        "value": "``"
+      },
+      {
+        "name": "teste1",
+        "value": "`Mensagem de teste 1\n`"
+      },
+      {
+        "name": "teste2",
+        "value": "`Mensagem de teste 2\n`"
+      },
+      {
+        "name": "teste3",
+        "value": "`Mensagem de teste 3\n`"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Home Copy_JSObject1",
+  "deleted": false,
+  "gitSyncId": "637249a55dc07247ec09d306_6377c21c2e7b1c2fbd27b99a"
+}
