@@ -13,7 +13,7 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Home Copy",
+    "pageId": "Home",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -37,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home Copy_Vendedor",
+  "id": "Home_Vendedor",
   "deleted": false,
   "gitSyncId": "637249a55dc07247ec09d306_6377c21c2e7b1c2fbd27b991"
 }

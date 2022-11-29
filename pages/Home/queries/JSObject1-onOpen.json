@@ -16,8 +16,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Home Copy",
-    "collectionId": "Home Copy_JSObject1",
+    "pageId": "Home",
+    "collectionId": "Home_JSObject1",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -42,7 +42,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home Copy_JSObject1.onOpen",
+  "id": "Home_JSObject1.onOpen",
   "deleted": false,
   "gitSyncId": "637249a55dc07247ec09d306_6377c21c2e7b1c2fbd27b990"
 }

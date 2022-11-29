@@ -1,7 +1,7 @@
 {
   "unpublishedPage": {
-    "name": "Home Copy",
-    "slug": "home-copy",
+    "name": "Home",
+    "slug": "home",
     "layouts": [
       {
         "viewMode": false,
@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 920,
+          "bottomRow": 960,
           "containerStyle": "none",
           "snapRows": 85,
           "parentRowSpace": 1,
@@ -35,8 +35,8 @@
               "searchTags": [
                 "dropdown"
               ],
-              "topRow": 0,
-              "bottomRow": 9,
+              "topRow": 4,
+              "bottomRow": 13,
               "parentRowSpace": 10,
               "labelWidth": 5,
               "type": "SELECT_WIDGET",
@@ -95,8 +95,8 @@
               "searchTags": [
                 "dropdown"
               ],
-              "topRow": 0,
-              "bottomRow": 9,
+              "topRow": 4,
+              "bottomRow": 13,
               "parentRowSpace": 10,
               "labelWidth": 5,
               "type": "SELECT_WIDGET",
@@ -155,8 +155,8 @@
                 "parent",
                 "group"
               ],
-              "topRow": 9,
-              "bottomRow": 84,
+              "topRow": 13,
+              "bottomRow": 88,
               "parentRowSpace": 10,
               "type": "CONTAINER_WIDGET",
               "hideCard": false,
@@ -754,8 +754,8 @@
                 "parent",
                 "group"
               ],
-              "topRow": 9,
-              "bottomRow": 84,
+              "topRow": 13,
+              "bottomRow": 88,
               "parentRowSpace": 10,
               "type": "CONTAINER_WIDGET",
               "hideCard": false,
@@ -2983,13 +2983,63 @@
               "onClose": "{{resetWidget(\"Modal_smtp\",true)}}",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "width": 966
+            },
+            {
+              "resetFormOnClick": false,
+              "boxShadow": "none",
+              "widgetName": "Button9",
+              "onClick": "{{navigateTo('https://github.com/leandro-25/CRM.git', {},'NEW_WINDOW')}}",
+              "buttonColor": "#4ade80",
+              "displayName": "Button",
+              "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
+              "searchTags": [
+                "click",
+                "submit"
+              ],
+              "topRow": 0,
+              "bottomRow": 4,
+              "parentRowSpace": 10,
+              "type": "BUTTON_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "parentColumnSpace": 19.328125,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onClick"
+                }
+              ],
+              "leftColumn": 0,
+              "dynamicBindingPathList": [
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "text": "GitHub",
+              "isDisabled": false,
+              "key": "nrzlxfjunw",
+              "isDeprecated": false,
+              "rightColumn": 64,
+              "isDefaultClickDisabled": true,
+              "iconName": "git-branch",
+              "widgetId": "yi4dq79egx",
+              "isVisible": true,
+              "recaptchaType": "V3",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "disabledWhenInvalid": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "buttonVariant": "PRIMARY",
+              "iconAlign": "left",
+              "placement": "CENTER"
             }
           ]
         },
         "layoutOnLoadActions": [
           [
             {
-              "id": "Home Copy_Vendedor",
+              "id": "Home_Vendedor",
               "name": "Vendedor",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
@@ -2999,7 +3049,7 @@
           ],
           [
             {
-              "id": "Home Copy_Cliente_filtros",
+              "id": "Home_Cliente_filtros",
               "name": "Cliente_filtros",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
@@ -3013,7 +3063,7 @@
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Home Copy",
+        "id": "Home",
         "deleted": false,
         "policies": [],
         "userPermissions": []
