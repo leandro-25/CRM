@@ -1,6 +1,5 @@
-![](https://raw.githubusercontent.com/appsmithorg/appsmith/release/static/appsmith_logo_primary.png)
 
-This app is built using Appsmith. Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop components to build dashboards, write logic with JavaScript objects and connect to any API, database or GraphQL source.
+Este aplicativo é construído usando Appsmith. Transforme qualquer fonte de dados em um aplicativo interno em minutos. O Appsmith permite que você arraste e solte componentes para criar painéis, escrever lógica com objetos JavaScript e conectar-se a qualquer API, banco de dados ou fonte do GraphQL.
 
 ![](https://raw.githubusercontent.com/appsmithorg/appsmith/release/static/images/integrations.png)
 
