@@ -335,9 +335,6 @@
                           "key": "primaryColumns.vendedor_nome.computedValue"
                         },
                         {
-                          "key": "primaryColumns.customColumn1.buttonColor"
-                        },
-                        {
                           "key": "primaryColumns.customColumn1.borderRadius"
                         },
                         {
@@ -747,11 +744,11 @@
                           "validation": {},
                           "buttonStyle": "rgb(3, 179, 101)",
                           "labelColor": "#FFFFFF",
-                          "buttonColor": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
+                          "buttonColor": "#dd4b34",
                           "borderRadius": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
                           "boxShadow": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
                           "customAlias": "",
-                          "buttonLabel": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( 'Action'))}}",
+                          "buttonLabel": "{{Table1_clientes.processedTableData.map((currentRow, currentIndex) => ( 'DELETAR'))}}",
                           "onClick": "{{Deletar.run()&&\nCliente_filtros.run()}}"
                         }
                       },
